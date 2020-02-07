@@ -29,6 +29,30 @@ app.get("/api/notes", function(req, res) {
     return res.json(JSON.parse(data));
   });
 });
+
+app.post("/api/notes", function(req, res) {
+   const newNote = req.body;
+   fs.readFile('./db/db.json', "utf-8", (err, data) => {
+     if(err)throw err;;
+     
+     const notes = [];  
+     if(data!=="")  notes = JSON.parse(data);
+   
+     let nextId = 1;
+     
+     if(notes.length > 0 ) {
+       nextId = notes[notes.length-1].id +1;
+     }  
+     newNote.id= nextId;
+     
+     notes.push(newNote);
+     
+     fs.writeFile('./db/db.json', JSON.stringify(notes), (err) => {
+       if(err) throw err;    
+       return res.status(200).send("Note added!");  
+     });  
+   });
+ });
 //-------------------- End Routes --------------------\\
 
 // Listening PORT 
