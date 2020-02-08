@@ -35,7 +35,7 @@ app.post("/api/notes", function(req, res) {
    fs.readFile('./db/db.json', "utf-8", (err, data) => {
      if(err)throw err;;
      
-     const notes = [];  
+     let notes = [];  
      if(data!=="")  notes = JSON.parse(data);
    
      let nextId = 1;
