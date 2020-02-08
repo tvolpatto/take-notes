@@ -12,9 +12,9 @@
 
  ## Running locally
 
- 1- Install the dependencies: ```npm install```;
- 2- Run: ```node server.js```;
- 3- The default  port is *3000*, so to access the application goes to **http://localhost:3000**
+ 1. Install the dependencies: ```npm install```;
+ 2. Run: ```node server.js```;
+ 3. The default  port is *3000*, so to access the application goes to **http://localhost:3000**
 
 ## Dependencies
 
